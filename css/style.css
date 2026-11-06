@@ -1904,16 +1904,18 @@ h4 { font-size: 1.25rem; }
 }
 
 .footer-brand-subtitle {
+  font-family: var(--font-sans);
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #FFFFFF !important;
+  color: #4A2E1B;
   font-weight: 600;
   margin-top: 4px;
+  display: block;
 }
 
 [data-theme="light"] .footer-brand-subtitle {
-  color: #FFFFFF !important;
+  color: #4A2E1B !important;
 }
 
 [data-theme="dark"] .footer-brand-subtitle {
