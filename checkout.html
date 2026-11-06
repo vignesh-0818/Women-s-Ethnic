@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your bespoke ethnic couture order with secure delivery and flexible payment options at VIRAASAT.">
+  <title>Checkout | VIRAASAT Women's Ethnic Wear</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-title"><span class="brand-symbol">⚜</span> VIRAASAT</span>
+          <span class="brand-subtitle">Haute Couture &amp; Ateliers</span>
+        </a>
+
+        <!-- Main Navigation Links (Home is the ONLY dropdown) -->
+        <ul class="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="index.html" class="nav-link">
+              Home <span class="nav-chevron">▼</span>
+            </a>
+            <div class="nav-dropdown">
+              <a href="index.html" class="dropdown-link">
+                <span>Home 1</span>
+                <span class="dropdown-badge">Classic</span>
+              </a>
+              <a href="home-2.html" class="dropdown-link">
+                <span>Home 2</span>
+                <span class="dropdown-badge">Editorial</span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="festive-edit.html" class="nav-link">Festive Edit</a></li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+
+        <!-- Utilities -->
+        <div class="header-actions">
+          <button class="mode-toggle-btn" aria-label="Toggle Theme"><span>🌙</span></button>
+          
+          <button class="rtl-toggle-btn" aria-label="Toggle Direction"><span class="btn-text">RTL</span></button>
+
+          <button class="action-btn wishlist-toggle-btn" aria-label="Wishlist">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="badge-count wishlist-badge" style="display:none;">0</span>
+          </button>
+
+          <button class="action-btn cart-toggle-btn" aria-label="Shopping Bag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="badge-count cart-badge" style="display:none;">0</span>
+          </button>
+
+          <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+      <div class="container">
+        <form class="search-form-inner">
+          <span class="search-icon-inside">🔍</span>
+          <input type="text" class="search-input-field" placeholder="Search kurtis, bridal lehengas, silk suits..." aria-label="Search query">
+          <button type="button" class="search-close-btn" aria-label="Close search">✕</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section style="background-color: var(--bg-secondary); padding: 40px 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container text-center">
+      <div style="font-size:0.8rem; color:var(--color-text-muted); margin-bottom:8px;">
+        <a href="index.html">Home</a> &gt; <a href="products.html">Products</a> &gt; <span style="color:var(--color-primary); font-weight:600;">Checkout</span>
+      </div>
+      <h1 style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 6px;">Checkout</h1>
+      <p style="font-size: 0.95rem; color: var(--color-text-secondary); max-width: 540px; margin: 0 auto;">
+        Complete your delivery details to place your couture order.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="section-padding">
+    <div class="container">
+      
+      <!-- Empty Cart State -->
+      <div id="checkout-empty-state" class="catalog-empty-state" style="display:none; max-width:620px; margin:0 auto;">
+        <div class="catalog-empty-icon">🛡️</div>
+        <h3 style="font-family:var(--font-serif); font-size:1.8rem; margin-bottom:12px;">Your Shopping Bag is Empty</h3>
+        <p style="font-size:0.95rem; color:var(--color-text-secondary); line-height:1.7; margin-bottom:24px;">
+          You cannot proceed to checkout without selecting items. Discover our handcrafted kurtas, festive shararas, and bridal lehengas.
+        </p>
+        <a href="products.html" class="btn btn-primary btn-lg">Explore Creations</a>
+      </div>
+
+      <!-- Order Confirmation View (Populated upon placement) -->
+      <div id="checkout-confirmation-container" style="display:none;"></div>
+
+      <!-- Two-Column Checkout Layout -->
+      <div class="checkout-layout" id="checkout-main-layout">
+        
+        <!-- Left Column: Customer & Delivery Details + Payment Options -->
+        <section>
+          <form id="checkout-form" novalidate>
+            <!-- Step 1: Delivery Details -->
+            <div class="checkout-card">
+              <h2 class="checkout-section-title">
+                <span>1. Customer &amp; Delivery Details</span>
+                <span style="font-size:0.8rem; color:var(--color-gold); font-family:var(--font-sans); font-weight:700;">REQUIRED</span>
+              </h2>
+              <p class="checkout-desc">All handcrafted orders are insured and delivered directly to your doorstep.</p>
+
+              <div class="form-group">
+                <label for="cust-name" class="form-label">Customer Name *</label>
+                <input type="text" id="cust-name" class="form-input" placeholder="e.g. Maharani Radhika Singh" pattern="[a-zA-Z\s]+" title="Please enter letters and spaces only" required>
+                <div class="form-error-msg">Please enter your full name (letters only).</div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                <div class="form-group">
+                  <label for="cust-phone" class="form-label">Phone Number *</label>
+                  <input type="tel" id="cust-phone" class="form-input" placeholder="9876543210" inputmode="numeric" pattern="\d{10}" maxlength="10" dir="ltr" title="Please enter 10 digit number only" required>
+                  <div class="form-error-msg">Please enter a valid 10-digit mobile number.</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="cust-email" class="form-label">Email Address *</label>
+                  <input type="email" id="cust-email" class="form-input" placeholder="name@domain.com" required>
+                  <div class="form-error-msg">Please enter a valid email address.</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cust-address" class="form-label">Delivery Address *</label>
+                <textarea id="cust-address" class="form-textarea" rows="3" placeholder="House/Flat No., Building, Street, Landmark" required></textarea>
+                <div class="form-error-msg">Please enter a complete physical delivery address.</div>
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px;">
+                <div class="form-group">
+                  <label for="cust-city" class="form-label">City *</label>
+                  <input type="text" id="cust-city" class="form-input" placeholder="e.g. New Delhi" required>
+                  <div class="form-error-msg">City required.</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="cust-state" class="form-label">State *</label>
+                  <select id="cust-state" class="form-select" required>
+                    <option value="" disabled selected>Select State</option>
+                    <option value="Delhi">Delhi NCR</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Other">Other Region / International</option>
+                  </select>
+                  <div class="form-error-msg">Select state.</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="cust-pincode" class="form-label">PIN Code *</label>
+                  <input type="text" id="cust-pincode" class="form-input" placeholder="110001" inputmode="numeric" pattern="\d{6}" maxlength="6" title="Please enter 6 digit PIN code only" required>
+                  <div class="form-error-msg">6-digit PIN.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Payment Method -->
+            <div class="checkout-card">
+              <h2 class="checkout-section-title">
+                <span>2. Payment Method</span>
+                <span style="font-size:0.8rem; color:var(--color-gold); font-family:var(--font-sans); font-weight:700;">SELECT ONE</span>
+              </h2>
+              <p class="checkout-desc">Select your preferred payment avenue. Transactions are encrypted with 256-bit security.</p>
+
+              <div class="payment-methods-group">
+                <!-- Option 1: Cash on Delivery -->
+                <label class="payment-method-option selected" data-method="cod">
+                  <input type="radio" name="payment_choice" value="cod" checked>
+                  <div>
+                    <strong>Cash on Delivery (COD)</strong>
+                    <div style="font-size:0.8rem; color:var(--color-text-muted);">Pay upon delivery across all Indian pin codes</div>
+                  </div>
+                </label>
+
+                <!-- Option 2: UPI -->
+                <label class="payment-method-option" data-method="upi">
+                  <input type="radio" name="payment_choice" value="upi">
+                  <div>
+                    <strong>UPI (Google Pay, PhonePe, Paytm, BHIM)</strong>
+                    <div style="font-size:0.8rem; color:var(--color-text-muted);">Instant zero-fee transfer via your preferred UPI app</div>
+                  </div>
+                </label>
+
+                <!-- Option 3: PayPal -->
+                <label class="payment-method-option" data-method="paypal">
+                  <input type="radio" name="payment_choice" value="paypal">
+                  <div>
+                    <strong>PayPal</strong>
+                    <div style="font-size:0.8rem; color:var(--color-text-muted);">Ideal for international patrons &amp; foreign currency cards</div>
+                  </div>
+                </label>
+
+                <!-- Option 4: Card -->
+                <label class="payment-method-option" data-method="card">
+                  <input type="radio" name="payment_choice" value="card">
+                  <div>
+                    <strong>Credit / Debit Card</strong>
+                    <div style="font-size:0.8rem; color:var(--color-text-muted);">Visa, MasterCard, RuPay, American Express</div>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Dynamic Payment Panels -->
+              <!-- COD Panel -->
+              <div id="cod-panel" class="payment-detail-panel active">
+                <p style="font-size:0.92rem; color:var(--color-text-secondary); margin:0; line-height:1.6;">
+                  💵 <strong>Cash on Delivery:</strong> Pay the order amount to the delivery partner when your order arrives. Our logistics associate will provide a physical printed VAT invoice and receipt.
+                </p>
+              </div>
+
+              <!-- UPI Panel -->
+              <div id="upi-panel" class="payment-detail-panel">
+                <p style="font-size:0.85rem; color:var(--color-text-secondary); margin-bottom:12px;">
+                  Supported Apps: Google Pay, PhonePe, Paytm, CRED &amp; BHIM.
+                </p>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="upi-id" class="form-label">Virtual Payment Address (UPI ID) *</label>
+                  <input type="text" id="upi-id" class="form-input" placeholder="e.g. yourname@okhdfcbank or 9876543210@paytm">
+                  <div class="form-error-msg">Please enter a valid UPI address.</div>
+                </div>
+              </div>
+
+              <!-- PayPal Panel -->
+              <div id="paypal-panel" class="payment-detail-panel">
+                <p style="font-size:0.85rem; color:var(--color-text-secondary); margin-bottom:12px;">
+                  Patrons with international billing addresses can transact securely via PayPal.
+                </p>
+                <div class="form-group" style="margin-bottom:6px;">
+                  <label for="paypal-email" class="form-label">PayPal Registered Email *</label>
+                  <input type="email" id="paypal-email" class="form-input" placeholder="paypal-account@domain.com">
+                  <div class="form-error-msg">Please enter a valid PayPal account email.</div>
+                </div>
+                <div style="font-size:0.75rem; color:var(--color-gold-dark); font-weight:600;">
+                  * Note: Demonstrated in boutique test environment.
+                </div>
+              </div>
+
+              <!-- Card Panel -->
+              <div id="card-panel" class="payment-detail-panel">
+                <div class="form-group">
+                  <label for="card-name" class="form-label">Cardholder Name *</label>
+                  <input type="text" id="card-name" class="form-input" placeholder="Name as embossed on card" pattern="[a-zA-Z\s]+" title="Please enter letters and spaces only">
+                  <div class="form-error-msg">Cardholder name required (letters only).</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="card-number" class="form-label">Card Number *</label>
+                  <input type="text" id="card-number" class="form-input" placeholder="4532 •••• •••• 8920" inputmode="numeric" maxlength="19">
+                  <div class="form-error-msg">Enter 16-digit card number.</div>
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                  <div class="form-group">
+                    <label for="card-expiry" class="form-label">Expiry Date *</label>
+                    <input type="text" id="card-expiry" class="form-input" placeholder="MM/YY" inputmode="numeric" maxlength="5">
+                    <div class="form-error-msg">MM/YY required.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="card-cvv" class="form-label">CVV / CVC *</label>
+                    <input type="password" id="card-cvv" class="form-input" placeholder="•••" inputmode="numeric" pattern="\d{3}" maxlength="3">
+                    <div class="form-error-msg">3-digit CVV.</div>
+                  </div>
+                </div>
+                <div style="font-size:0.75rem; color:var(--color-text-muted);">
+                  🔒 Your card details are processed under PCI-DSS compliance and are never stored locally.
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Place Order Submit Button -->
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%; font-size:1.05rem; padding:18px;">
+              Place Order &amp; Confirm Delivery
+            </button>
+            <p style="font-size:0.78rem; color:var(--color-text-muted); text-align:center; margin-top:12px;">
+              By placing your order, you agree to VIRAASAT's heirloom terms of service and complimentary sizing care guarantee.
+            </p>
+          </form>
+        </section>
+
+        <!-- Right Column: Order Summary Card -->
+        <aside>
+          <div class="order-summary-card">
+            <h3 style="font-family:var(--font-serif); font-size:1.35rem; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--color-border-light);">
+              Order Summary
+            </h3>
+
+            <!-- Dynamic Cart Items Container -->
+            <div id="checkout-items-list" class="order-items-list">
+              <!-- Rendered via js/checkout.js -->
+            </div>
+
+            <!-- Price Breakdown Calculation -->
+            <div style="border-top:1px solid var(--color-border-light); padding-top:16px;">
+              <div class="order-calculation-row">
+                <span>Bag Subtotal</span>
+                <span id="checkout-subtotal" style="font-weight:600; color:var(--color-text);">₹0</span>
+              </div>
+              <div class="order-calculation-row">
+                <span>Insured Express Delivery</span>
+                <span id="checkout-shipping" style="font-weight:600; color:var(--color-success);">COMPLIMENTARY</span>
+              </div>
+              <div class="order-calculation-row">
+                <span>Handloom Authenticity Certificate</span>
+                <span style="font-weight:600; color:var(--color-gold-dark);">INCLUDED</span>
+              </div>
+              
+              <div class="order-grand-total">
+                <span>Grand Total</span>
+                <span id="checkout-grand-total">₹0</span>
+              </div>
+            </div>
+
+            <div style="margin-top:24px; padding:14px; background:var(--bg-secondary); border-radius:var(--radius-sm); border:1px solid var(--color-border-light); font-size:0.8rem; color:var(--color-text-secondary); line-height:1.5;">
+              <div style="font-weight:700; color:var(--color-gold-dark); margin-bottom:4px;">✦ VIRAASAT Promise</div>
+              Each creation undergoes a 3-tier master karigar quality inspection and arrives wrapped in protective unbleached pure cotton muslin.
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+    <!-- Complete Boutique Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom:6px; display:inline-block;">
+            <span class="brand-title" style="color:var(--color-gold);"><span class="brand-symbol">⚜</span> VIRAASAT</span>
+          </a>
+          <div class="footer-brand-subtitle" style="color: #ffffff !important;">HAUTE COUTURE &amp; ATELIERS</div>
+          <p class="footer-brand-desc" style="margin-top: 14px;">
+            The couture atelier redefining Indian ethnic wear with architectural elegance, slow artisan weaving, and timeless ceremonial luxury.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">IG</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook">FB</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="X (formerly Twitter)">X</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home 1 (Classic)</a></li>
+            <li><a href="home-2.html" class="footer-link">Home 2 (Editorial)</a></li>
+            <li><a href="products.html" class="footer-link">All Products</a></li>
+            <li><a href="festive-edit.html" class="footer-link">Festive Edit</a></li>
+            <li><a href="pricing.html" class="footer-link">Couture Pricing</a></li>
+            <li><a href="about.html" class="footer-link">Our Story &amp; Artisans</a></li>
+            <li><a href="blog.html" class="footer-link">The Journal &amp; Guides</a></li>
+            <li><a href="contact.html" class="footer-link">Contact &amp; Showrooms</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Product Categories -->
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="products.html?category=kurtis" class="footer-link">Kurtis &amp; Tunics</a></li>
+            <li><a href="products.html?category=lehengas" class="footer-link">Bridal &amp; Festive Lehengas</a></li>
+            <li><a href="products.html?category=suits" class="footer-link">Royal Anarkali Suits</a></li>
+            <li><a href="products.html?category=suits&subcategory=Palazzo" class="footer-link">Shararas &amp; Palazzos</a></li>
+            <li><a href="festive-edit.html" class="footer-link">Banarasi Brocades</a></li>
+            <li><a href="products.html?category=kurtis&subcategory=Embroidered" class="footer-link">Lucknowi Chikankari</a></li>
+          </ul>
+        </div>
+
+                <!-- Col 4: Boutique Concierge -->
+        <div>
+          <h4 class="footer-col-title">Boutique Concierge</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+            <span>Flagship Atelier: Heritage Quarter, MG Road, New Delhi 110030</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+            <span>Client Care: +91 98765 43210 / +91 91234 56789</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+            <span>concierge@viraasat-ethnic.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+            <span>Mon - Sat: 10:30 AM - 8:30 PM<br>Sunday: 11:00 AM - 7:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
+          <span>© 2026 VIRAASAT Haute Couture Private Limited. All rights reserved. Handcrafted in India.</span>
+          <span style="opacity:0.4;">|</span>
+          <a href="privacy.html" class="footer-policy-link">Privacy Policy</a>
+          <span style="opacity:0.4;">•</span>
+          <a href="terms.html" class="footer-policy-link">Terms of Service</a>
+        </div>
+        <div class="footer-payment-badges">
+          <span class="payment-chip">VISA</span>
+          <span class="payment-chip">MASTERCARD</span>
+          <span class="payment-chip">UPI</span>
+          <span class="payment-chip">RUPAY</span>
+          <span class="payment-chip">AMEX</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawers & Modals -->
+  <div class="side-drawer wishlist-drawer" aria-label="Saved Wishlist Items">
+    <div class="drawer-header">
+      <h3>Your Curated Wishlist</h3>
+      <button class="action-btn wishlist-close-btn" aria-label="Close wishlist">✕</button>
+    </div>
+    <div class="drawer-body wishlist-items-container"></div>
+  </div>
+
+  <div class="side-drawer cart-drawer" aria-label="Shopping Bag">
+    <div class="drawer-header">
+      <h3>Your Shopping Bag</h3>
+      <button class="action-btn cart-close-btn" aria-label="Close shopping bag">✕</button>
+    </div>
+    <div class="drawer-body cart-items-container"></div>
+    <div class="drawer-footer">
+      <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:16px;">
+        <span>Subtotal</span>
+        <span class="cart-subtotal-val">₹0</span>
+      </div>
+      <button class="btn btn-primary btn-lg cart-checkout-btn" style="width:100%;">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <div class="mobile-nav-drawer" aria-label="Mobile Menu">
+    <div class="mobile-nav-header">
+      <span class="brand-title" style="font-size:1.4rem;"><span class="brand-symbol">⚜</span> VIRAASAT</span>
+      <button class="action-btn mobile-nav-close" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li>
+          <a href="#" class="mobile-nav-link mobile-home-toggle">
+            <span>Home</span>
+            <span class="nav-chevron">▼</span>
+          </a>
+          <div class="mobile-home-sublist">
+            <a href="index.html" class="mobile-nav-sublink">Home 1 (Classic)</a>
+            <a href="home-2.html" class="mobile-nav-sublink">Home 2 (Editorial)</a>
+          </div>
+        </li>
+        <li><a href="products.html" class="mobile-nav-link">Products</a></li>
+        <li><a href="festive-edit.html" class="mobile-nav-link">Festive Edit</a></li>
+        <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="drawer-backdrop"></div>
+  <div class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
+
+
