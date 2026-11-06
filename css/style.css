@@ -7,6 +7,7 @@
 
 /* --- CSS Variables & Design Tokens --- */
 :root {
+  color-scheme: light;
   /* Light Palette (Default) */
   --bg-primary: #FAF6F0;
   --bg-secondary: #F4ECE1;
@@ -60,6 +61,7 @@
 
 /* --- Dark Theme Palette --- */
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg-primary: #120E10;
   --bg-secondary: #191416;
   --bg-surface: #201A1D;
@@ -1070,17 +1072,20 @@ h4 { font-size: 1.25rem; }
 
 .page-hero-banner-tag {
   display: inline-block;
-  background: rgba(197, 160, 89, 0.22);
-  border: 1px solid rgba(197, 160, 89, 0.65);
-  color: #E2B755;
-  padding: 6px 18px;
+  background: rgba(20, 14, 18, 0.88);
+  border: 1.5px solid #FFD54F;
+  color: #FFE066;
+  padding: 7px 20px;
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 16px;
-  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.65), 0 0 14px rgba(255, 213, 79, 0.45);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 213, 79, 0.4);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .page-hero-banner-title {
@@ -2060,8 +2065,7 @@ h4 { font-size: 1.25rem; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 24px;
-  position: sticky;
-  top: calc(var(--header-height) + 24px);
+  position: relative;
   box-shadow: var(--shadow-sm);
   width: 100%;
 }
@@ -2934,6 +2938,57 @@ h4 { font-size: 1.25rem; }
   color: var(--color-text);
   font-size: 0.95rem;
   transition: all var(--transition-fast);
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-select option,
+.catalog-sort-select option {
+  background-color: var(--bg-surface);
+  color: var(--color-text);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .catalog-sort-select {
+  color-scheme: dark;
+  background-color: #1A1417;
+  color: #F5EFE9;
+}
+
+[data-theme="dark"] .form-select option,
+[data-theme="dark"] .catalog-sort-select option {
+  background-color: #201A1D;
+  color: #F5EFE9;
+}
+
+[data-theme="dark"] .form-select option:disabled,
+[data-theme="dark"] .form-select option[value=""] {
+  color: var(--color-gold);
+  background-color: #161214;
+}
+
+[data-theme="light"] .form-select,
+[data-theme="light"] .catalog-sort-select {
+  color-scheme: light;
+  background-color: #FFFFFF;
+  color: #120E10;
+}
+
+[data-theme="light"] .form-select option,
+[data-theme="light"] .catalog-sort-select option {
+  background-color: #FFFFFF;
+  color: #120E10;
+}
+
+[data-theme="light"] .form-select option:disabled,
+[data-theme="light"] .form-select option[value=""] {
+  color: var(--color-primary);
+  background-color: #FAF6F0;
+  font-weight: 600;
 }
 
 .form-input:focus,
