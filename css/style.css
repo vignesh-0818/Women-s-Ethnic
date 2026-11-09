@@ -1815,28 +1815,14 @@ h4 { font-size: 1.25rem; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
 }
 
 .insta-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(106, 20, 38, 0.75);
-  color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-}
-
-.insta-item:hover .insta-overlay {
-  opacity: 1;
+  display: none !important;
 }
 
 .insta-item:hover .insta-img {
-  transform: scale(1.1);
+  transform: none !important;
 }
 
 .insta-tag {
@@ -3681,7 +3667,7 @@ h4 { font-size: 1.25rem; }
 }
 
 .pricing-thumb-wrap {
-  height: 220px;
+  height: 280px;
   overflow: hidden;
   position: relative;
 }
@@ -3690,7 +3676,7 @@ h4 { font-size: 1.25rem; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 20%;
   transition: transform var(--transition-slow);
 }
 
