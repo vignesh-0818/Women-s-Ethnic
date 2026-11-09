@@ -34,5 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     estForm.addEventListener('change', calculateEstimate);
     calculateEstimate();
   }
+  if (typeof initFaqAccordion === 'function') {
+    initFaqAccordion();
+  }
 });
 

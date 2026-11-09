@@ -107,7 +107,8 @@ function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const header = item.querySelector('.faq-header');
-    if (!header) return;
+    if (!header || header.dataset.faqInitialized) return;
+    header.dataset.faqInitialized = 'true';
 
     header.addEventListener('click', () => {
       const isActive = item.classList.contains('active');

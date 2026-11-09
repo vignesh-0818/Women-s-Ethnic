@@ -121,11 +121,10 @@ function setupFilterControls() {
     });
   }
 
-  // Reset filters button
-  const resetBtn = document.querySelector('.reset-filters-btn');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', resetAllFilters);
-  }
+  // Reset filters buttons (sidebar button and empty-state button)
+  document.querySelectorAll('.reset-filters-btn').forEach(btn => {
+    btn.addEventListener('click', resetAllFilters);
+  });
 
   updateSubcategoryPills();
 }
@@ -292,11 +291,21 @@ function resetAllFilters() {
     size: 'all'
   };
 
-  document.querySelectorAll('aside.catalog-sidebar .size-btn').forEach(btn => btn.classList.remove('active'));
+  // Reset category tabs
+  document.querySelectorAll('.category-tab-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-category') === 'all');
+  });
 
+  // Reset size filter buttons
+  document.querySelectorAll('.atelier-sizes-filter .size-btn, aside.catalog-sidebar .size-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // Reset search input
   const searchInput = document.querySelector('.catalog-search-input');
   if (searchInput) searchInput.value = '';
 
+  // Reset price slider and text display
   const priceSlider = document.querySelector('.price-range-input');
   const priceDisplay = document.querySelector('.price-max-display');
   if (priceSlider && priceDisplay) {
@@ -304,13 +313,19 @@ function resetAllFilters() {
     priceDisplay.textContent = '₹85,000';
   }
 
+  // Reset sort dropdown
   const sortSelect = document.querySelector('.catalog-sort-select');
   if (sortSelect) sortSelect.value = 'featured';
 
-  document.querySelectorAll('.category-tab-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-category') === 'all');
-  });
+  // Clean URL query parameters smoothly without reloading
+  if (window.history && window.history.replaceState) {
+    const cleanUrl = window.location.pathname;
+    window.history.replaceState({}, document.title, cleanUrl);
+  }
 
+  // Restore subcategory pills to default
   updateSubcategoryPills();
+
+  // Re-render full products collection and hide empty state
   renderProducts();
 }

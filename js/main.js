@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initNewsletterForms();
   renderDynamicBadges();
+  initFaqAccordion();
 });
 
 // --- Theme Management (Light / Dark) ---
@@ -598,4 +599,26 @@ function showToast(message) {
     toast.classList.remove('show');
     setTimeout(() => toast.remove(), 400);
   }, 3500);
+}
+
+// --- FAQ Accordion Engine ---
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const header = item.querySelector('.faq-header');
+    if (!header || header.dataset.faqInitialized) return;
+    header.dataset.faqInitialized = 'true';
+
+    header.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      // Single-open accordion: close all items
+      faqItems.forEach(i => i.classList.remove('active'));
+      // Toggle clicked item: if previously closed, open it
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
 }
